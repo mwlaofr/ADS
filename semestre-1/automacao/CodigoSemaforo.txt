@@ -1,0 +1,82 @@
+int red1 = 7;
+int green1 = 6;
+int red2 = 3;
+int yellow = 4;
+int green2 = 5;
+int botao = 2;
+
+void setup(){
+  pinMode(red1, OUTPUT);
+  pinMode(green1, OUTPUT);
+  pinMode(red2, OUTPUT);
+  pinMode(yellow, OUTPUT);
+  pinMode(green2, OUTPUT);
+  pinMode(botao, INPUT);
+  
+  //pisca 3x amarelo
+  digitalWrite(yellow, 1);
+  delay(1000);
+  digitalWrite(yellow, 0);
+  delay(1000);
+  digitalWrite(yellow, 1);
+  delay(1000);
+  digitalWrite(yellow, 0);
+  delay(1000);
+  digitalWrite(yellow, 1);
+  delay(1000);
+  digitalWrite(yellow, 0);
+
+}
+
+void loop(){
+  if(digitalRead(botao) == 1){
+    digitalWrite(red2, 0);
+    digitalWrite(green1, 0);
+    digitalWrite(green2, 0);
+    digitalWrite(red1, 1);
+    digitalWrite(yellow, 1);
+    delay(3000);
+    digitalWrite(yellow, 0);
+    digitalWrite(red1, 0);
+    digitalWrite(green1, 1);
+    digitalWrite(red2, 1);
+    delay(1000);
+    digitalWrite(red1, 1);
+    delay(1000);
+    digitalWrite(red1, 0);  //alerta do tempo do pedestre fechando
+    delay(1000);
+    digitalWrite(green1, 0);
+    digitalWrite(red1, 1);
+    digitalWrite(red2, 0);
+    digitalWrite(green2, 1);
+    delay(4000);
+    
+  }
+  
+  else if(digitalRead(botao) == 0){
+    digitalWrite(red1, 1);
+    digitalWrite(green2, 1);
+    delay(5000);
+    digitalWrite(green2, 0);
+    digitalWrite(yellow, 1);
+    delay(3000);
+    digitalWrite(red1, 0);
+    digitalWrite(yellow, 0);
+    digitalWrite(red2, 1);
+    digitalWrite(green1, 1);
+    delay(5000);
+    digitalWrite(red2, 0);
+    digitalWrite(yellow, 1);
+    digitalWrite(red1, 1);
+    delay(1000);
+    digitalWrite(red1, 0);
+    delay(1000);
+    digitalWrite(red1, 1);
+    delay(1000);
+    digitalWrite(red1, 0);
+
+    digitalWrite(yellow, 0);
+    digitalWrite(green1, 0);
+  }
+  
+}
